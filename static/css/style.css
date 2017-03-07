@@ -1,0 +1,186 @@
+.heder {
+    width: 100%;
+    min-width: 400px;
+    padding: 15px;
+    text-align: right;
+    margin: 0px;
+}
+.main-container {
+    padding: 40px 0;
+}
+
+.heder h1, header h1 {
+    margin: 15px 0;
+    padding: 20px 10px;
+    font-size: 36px;
+    font-weight: bold;
+    font-style: italic;
+    color: green;
+    text-transform: uppercase;
+}
+
+.btn-default {
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 5px 10px;
+    color: #1a15bf;
+    text-transform: UPPERCASE;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    border: 1px solid;
+    transition: all 250ms;
+    background: rgba(7, 128, 0, 0.61);
+}
+
+.btn-default:hover {
+    color: greenyellow;
+    background: rgba(26, 21, 191, 0.61);
+    text-decoration: none;
+}
+
+.flash {
+    text-align: center;
+    color: green;
+    font-size: 12px;
+    font-style: italic;
+    text-transform: uppercase;
+    margin: 25px 0;
+}
+
+table.task {
+    position: relative;
+    width: 100%;
+    border: 1px solid #ddd;
+    box-shadow: 2px 5px 6px 3px #333;
+}
+
+.task tbody {
+}
+
+tr.titles {
+    background-color: #ddd;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-bottom: 1px solid;
+}
+
+tr td + td, tr th + th {
+    border-left: 1px solid;
+}
+
+tr td, tr th {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+
+tr.titles th {
+    text-transform: uppercase;
+}
+
+tr.separator {
+    background-color: rgba(26, 21, 191, 0.23);
+    text-transform: uppercase;
+    color: seagreen;
+}
+
+tr.current {
+    background-color: rgba(35, 30, 191, 0.6);
+    color: #eee;
+    font-size:12px;
+}
+
+tr.done {
+    background-color: #67b163;
+    color: cornflowerblue;
+     font-size:12px;
+}
+
+tr.falsed {
+    background-color: #ff3d00;
+    color:#eee;
+     font-size:12px;
+}
+
+td.controls a {
+    color: #fffb00;
+    text-decoration: none;
+    outline: none;
+    transition: all 250ms;
+    font-weight: 700;
+    display: block;
+    line-height: 2;
+}
+
+td.controls a:hover {
+    text-decoration: none;
+    color: #1cb377;
+}
+
+td.controls {
+    padding: 5px 0;
+}
+
+form.form {
+    width: 50%;
+    margin: auto;
+    border: 1px solid #ddd;
+    box-shadow: 4px 5px 14px 1px #333;
+    padding: 25px;
+    text-align: right;
+}
+form.form h1 {
+    margin: 15px 0;
+    padding: 20px 10px;
+    font-size: 36px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: right;
+    color: green;
+    text-transform: uppercase;
+}
+
+.form-group {
+    width: 100%;
+    position: relative;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+    text-transform: UPPERCASE;
+    color: #4a40bf;
+}
+
+input[type='text'], textarea ,input[type='password']{
+    width: 100%;
+    padding: 6px 15px;
+    border: 1px solid #eee;
+    border-bottom: 3px solid lawngreen;
+    box-shadow: none;
+    color: #585555;
+}
+
+.form-group.date div {
+    width: calc(50% - 10px);
+    display: inline-block;
+}
+
+.form-group.date div:last-child {
+    float: right;
+}
+
+.form-group.date div:last-child label {
+    text-align: right;
+}
+
+input[type='submit'] {
+    padding: 10px 25px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+}

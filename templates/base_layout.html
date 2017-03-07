@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet"
+      href="{{url_for('.static', filename='css/bootstrap.css')}}">
+    <link rel="stylesheet"
+      href="{{url_for('.static', filename='css/style.css')}}">
+    <script src="{{url_for('.static', filename='js/bootstrap.css')}}" charset="utf-8"></script>
+</head>
+<body>
+<header>
+    {% if g.user.is_authenticated %}
+    <div class="heder">
+      <h1>Hello, {{ g.user.nikname }}</h1>
+      <a href="/create" class="btn-default">Add task</a>
+      <a href="/logout" class="btn-default">Logout</a><br/><br/>
+    </div>
+    {% else %}
+    <h1>Main page</h1>
+    <a href="/login" class="btn-default">Login</a>
+    <a href="/registration" class="btn-default">Registration</a>
+    {% endif %}
+  </div>
+</div>
+</header>
+<div class="main-container">
+
+    {% block content %}
+
+    {% endblock %}
+</div>
+
+</body>
+</html>

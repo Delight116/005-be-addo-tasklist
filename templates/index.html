@@ -1,0 +1,82 @@
+{% extends "base_layout.html" %}
+{% block content %}
+<div class="container">
+  <div class="row">
+   <div class="flash">
+         {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+                <h4>{{ message }}</h4>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+   </div>
+    {% if g.user.is_authenticated %}
+
+    <div class="tasks">
+            <table class="task">
+              <tr class="titles">
+                <th>Title task</th>
+                <th>Text task</th>
+                <th>Date create</th>
+                <th>Date to end</th>
+                <th></th>
+              </tr>
+              <tr class="separator">
+                <td colspan="5">Folsed </td>
+              </tr>
+              {% for value in tasks.select().filter(tasks.task_status == False and tasks.task_to_date<=today)%}
+                  {% if g.user.id == value.user_id%}
+                  <tr class="folsed">
+                    <td>{{value.task_title}}</td>
+                    <td>{{value.task_text}}</td>
+                    <td>{{value.task_date}}</td>
+                    <td>{{value.task_to_date}}</td>
+                    <td class="controls">
+                      <a href="/edit/task/{{value.get_id()}}" class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
+                      <a href="/delete/task/{{value.get_id()}}" class="glyphicon glyphicon-trash" aria-hidden="true"></a>
+                    </td>
+                  </tr>
+                  {% endif %}
+              {% endfor %}
+              <tr class="separator">
+                <td colspan="5">done </td>
+              </tr>
+              {% for value in tasks.select().filter(tasks.task_status == True)%}
+                  {% if g.user.id == value.user_id%}
+                  <tr class="done">
+                    <td>{{value.task_title}}</td>
+                    <td>{{value.task_text}}</td>
+                    <td>{{value.task_date}}</td>
+                    <td>{{value.task_to_date}}</td>
+                    <td class="controls">
+                      <a href="/edit/task/{{value.get_id()}}" class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
+                      <a href="/delete/task/{{value.get_id()}}" class="glyphicon glyphicon-trash" aria-hidden="true"></a>
+                    </td>
+                  </tr>
+                  {% endif %}
+              {% endfor %}
+              <tr class="separator">
+                <td colspan="5">Current </td>
+              </tr>
+              {% for value in tasks.select().filter(tasks.task_status == False and tasks.task_to_date >= today)%}
+                  {% if g.user.id == value.user_id%}
+                  <tr class="current">
+                    <td>{{value.task_title}}</td>
+                    <td>{{value.task_text}}</td>
+                    <td>{{value.task_date}}</td>
+                    <td>{{value.task_to_date}}</td>
+                    <td class="controls">
+                      <a href="/edit/task/{{value.get_id()}}" class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
+                      <a href="/delete/task/{{value.get_id()}}" class="glyphicon glyphicon-trash" aria-hidden="true"></a>
+                    </td>
+                  </tr>
+                  {% endif %}
+              {% endfor %}
+
+            </table>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
